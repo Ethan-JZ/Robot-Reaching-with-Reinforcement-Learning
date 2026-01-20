@@ -1,6 +1,8 @@
 # Robot Reaching Task with Reinforcement Learning
 
-This project will use Reinforcement Learning algorithm on robot reaching task. The current updated algorithms are DDPG, TD3 and PPO. 
+Since I cannot find so many people applying the Reinforcement Learning algorithm on customized robot, I wrote this github doc to do so. 
+
+This git hub repo uses serveral Reinforcement Learning algorithms on robot reaching task. The current updated algorithms are DDPG, TD3 and PPO. 
 
 And we are using a customized robot, so I believe that whatever posted here should also be possible to migrate to your own robot setup.
 
