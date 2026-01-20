@@ -1,0 +1,18 @@
+# virtual env 
+venv/
+
+# cache
+.vscode/
+__pycache__/
+
+# text log
+*.txt
+
+# gauss newton
+helpers/gauss_newton.py
+
+# robot 
+env/robot.urdf
+env/robot_reaching_pos.py
+env/robot_workspace.json
+

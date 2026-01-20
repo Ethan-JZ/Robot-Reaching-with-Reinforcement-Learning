@@ -1,0 +1,12 @@
+Sat Jan 10 16:46:53 2026
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0220.
+
+Sat Jan 10 16:46:53 2026
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0280.
+
+Sat Jan 10 16:47:33 2026
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.0240.
+
+Sat Jan 10 16:47:33 2026
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0220.
+
