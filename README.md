@@ -11,13 +11,13 @@ And we are using a customized robot, so I believe that whatever posted here shou
 - **MuJoCo-based 6-DOF robot** with a gripper (8 actuators total)
 - **Dense reward function** for reaching tasks. If the robot reaches the goal position, a success bonus will be added by `r += 10`.
 - **Observation space** includes:
-  - End-effector relative position to goal
-  - End-effector velocity
+  - End-effector relative position to goal.
+  - End-effector velocity.
   - Gripper state, we fix this at the open state for training since we are only concerned with reaching task.
-  - On-goal indicator
-- **Continuous action space**: `[dx, dy, dz]` incremental movements
-- **IK solver** using Damped Least Squares (DLS) to compute joint updates
-- **Visualization** via MuJoCo viewer
+  - On-goal indicator: whether the robot end-effector reference point reaches the goal.
+- **Continuous action space**: `[dx, dy, dz]` incremental movements upon the end-effector of the robot.
+- **IK solver** using Damped Least Squares (DLS) to compute joint position updates.
+- **Visualization** via MuJoCo viewer.
 - **Robot workspace and taskspace** the robot workspace is a sampling set on its entire workspace defined in its URDF. The taskspace of the robot is a subset of the workspace. And in this robot environment, we sampled a tank of points from the robot workspace to train the robot end-effector to reach there.
 
 ---
