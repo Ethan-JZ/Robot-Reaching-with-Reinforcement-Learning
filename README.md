@@ -6,6 +6,8 @@ This git hub repo uses serveral Reinforcement Learning algorithms on robot reach
 
 And we are using a customized robot, so I believe that whatever posted here should also be possible to migrate to your own robot setup.
 
+I am working on Ubuntu 24.04 with VS code IDE for this repo.
+
 ## Robot Environment Features
 
 - **MuJoCo-based 6-DOF robot** with a gripper (8 actuators total)
