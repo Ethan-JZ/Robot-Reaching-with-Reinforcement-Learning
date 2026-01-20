@@ -9,7 +9,7 @@ And we are using a customized robot, so I believe that whatever posted here shou
 ## Robot Environment Features
 
 - **MuJoCo-based 6-DOF robot** with a gripper (8 actuators total)
-- **Dense reward function** for reaching tasks
+- **Dense reward function** for reaching tasks. If the robot reaches the goal position, a success bonus will be added by `r += 10`.
 - **Observation space** includes:
   - End-effector relative position to goal
   - End-effector velocity
