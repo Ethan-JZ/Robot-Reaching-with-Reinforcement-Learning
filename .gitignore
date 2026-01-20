@@ -6,7 +6,7 @@ venv/
 __pycache__/
 
 # text log
-*.txt
+MUJOCO_LOG.TXT
 
 # gauss newton
 helpers/gauss_newton.py
