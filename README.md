@@ -40,7 +40,7 @@ pip install numpy
 pip install matplotlib
 ```
 
-3. As for Pytorch, I recommend you go to its official website: https://pytorch.org/ and find the "Install PyTorch" to find which installation command suits your computer. And to check your CUDA version, run the following command in the terminal:
+3. As for Pytorch, I recommend you go to its official website: https://pytorch.org/ and find the **Install PyTorch** to find which installation command suits your computer. And to check your CUDA version, run the following command in the terminal:
 
 ```
 nvidia-smi
