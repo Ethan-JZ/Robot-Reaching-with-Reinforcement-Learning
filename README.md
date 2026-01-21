@@ -22,6 +22,9 @@ I am working on Ubuntu 24.04 with VS code IDE for this repo.
 - **Visualization** via MuJoCo viewer.
 - **Robot workspace and taskspace** the robot workspace is a sampling set on its entire workspace defined in its URDF. The taskspace of the robot is a subset of the workspace. And in this robot environment, we sampled a tank of points from the robot workspace to train the robot end-effector to reach there.
 
+![Robot env](png/robot_env.gif)
+
+The robot environment of this reaching task is shown in the GIF above. The green cube is the target or goal to reach for the robot.
 ---
 
 ## Before coding, please DO the following first
