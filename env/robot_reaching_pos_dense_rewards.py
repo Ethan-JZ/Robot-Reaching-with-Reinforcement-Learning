@@ -82,7 +82,12 @@ class SampleWS:
 
 class RobotEnv(gym.Env):
 
-    def __init__(self, xml_path: str, ws_path: str, ee_site: str, joints_names: list[str], render: bool):
+    def __init__(self, 
+                 xml_path: str, 
+                 ws_path: str, 
+                 ee_site: str, 
+                 joints_names: list[str], 
+                 render: bool):
         super().__init__()
 
         # ---------------------------
@@ -91,9 +96,8 @@ class RobotEnv(gym.Env):
         self.pos_dim       = 3     # position of the goal dimension: 3
         self.pos_threshold = 0.01  # position error threshold in meters
         self.step_count    = 0     # step count number
-        self.max_steps     = 200   # maximum step per episode
+        self.max_steps     = 300   # maximum step per episode
         self.action_scale  = 0.005  # action scale per step for the end-effector
-        self.hold_on_time  = 40    # holding time of the robot staying at the goal
 
         # set the observation space and action space
         # observation is of 8 values:
@@ -134,6 +138,7 @@ class RobotEnv(gym.Env):
         # ---------------------------
         # Workspace goals
         # ---------------------------
+        self.task_space_XYZ = ((-0.5, 0.5), (0.2, 0.5), (0.1, 0.4))
         self.ws_path        = ws_path
         self.goal_poses     = self._read_json_ws()
         self.goal_pose      = None
@@ -180,7 +185,8 @@ class RobotEnv(gym.Env):
         returns:
         pose_array: (n, 7) numpy array, 7 values: 3 position, 4 orientation values
         """
-        sample_ws = SampleWS(self.ws_path, [-0.4, 0.4], [0.15, 0.3], [0.1, 0.2])
+        x, y, z = self.task_space_XYZ
+        sample_ws = SampleWS(self.ws_path, x, y, z)
         return sample_ws.box_points
     
     def visualize_sample_ws(self):
@@ -290,22 +296,7 @@ class RobotEnv(gym.Env):
         
         if success:
             terminated = True
-            r += 10
-        
-        # # --------------------------------------------------------
-        # # [3] Collision penalty with floor
-        # # --------------------------------------------------------
-        # floor_geom_id = self.model.geom("ground").id
-        # collision     = False
-        # for i in range(self.data.ncon):
-        #     contact = self.data.contact[i]
-        #     if contact.geom1 == floor_geom_id or contact.geom2 == floor_geom_id:
-        #         collision = True
-        #         break
-
-        # if collision:
-        #     r -= 5.0           # large penalty
-        #     terminated = True  # optional: end episode on collision
+            r += 20
 
         return r, terminated, [1. if success else 0.]
 
@@ -386,8 +377,8 @@ class RobotEnv(gym.Env):
 
 
 if __name__ == "__main__":
-    xml_path     = "/home/ethan/RL_learning/table_robot_training_mujoco/env/robot.xml"
-    ws_path      = "saved_ws120000.json"
+    xml_path     = "env/robot.xml"
+    ws_path      = "robot_workspace.json"
     joints_names = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6", "gripper_left_finger_joint", "gripper_right_finger_joint"]
     
     env = RobotEnv(xml_path=xml_path, ws_path=ws_path, joints_names=joints_names, ee_site="ee_site", render=True)
