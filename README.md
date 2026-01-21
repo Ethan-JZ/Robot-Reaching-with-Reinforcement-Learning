@@ -24,7 +24,7 @@ I am working on Ubuntu 24.04 with VS code IDE for this repo.
 
 ---
 
-## Before your coding, please DO the following first
+## Before coding, please DO the following first
 
 1. Make sure your create a venv inside your working directory. And activate this first before install any packages in the following.
 ```
