@@ -138,7 +138,7 @@ class RobotEnv(gym.Env):
         # ---------------------------
         # Workspace goals
         # ---------------------------
-        self.task_space_XYZ = ((-0.4, 0.4), (0.1, 0.5), (0.1, 0.3))
+        self.task_space_XYZ = ((-0.4, 0.4), (0.1, 0.4), (0.1, 0.3))
         self.ws_path        = ws_path
         self.goal_poses     = self._read_json_ws()
         self.goal_pose      = None
@@ -392,7 +392,7 @@ class RobotEnv(gym.Env):
 
 
 if __name__ == "__main__":
-    xml_path     = "env/robot.xml"
+    xml_path     = "robot.xml"
     ws_path      = "robot_workspace.json"
     joints_names = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6", "gripper_left_finger_joint", "gripper_right_finger_joint"]
     
