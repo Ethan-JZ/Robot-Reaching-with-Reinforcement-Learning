@@ -23,7 +23,7 @@ I am working on Ubuntu 24.04 with VS code IDE for this repo.
 - **Robot workspace and taskspace** the robot workspace is a sampling set on its entire workspace defined in its URDF. The taskspace of the robot is a subset of the workspace. And in this robot environment, we sampled a tank of points from the robot workspace to train the robot end-effector to reach there.
 - The robot environment of this reaching task is shown in the GIF. The green cube is the target or goal to reach for the robot.
 
-![Robot env](png/robot_env.gif)
+![Robot env](png/robot_env_1.gif)
 ---
 
 ## Before coding, please DO the following first
