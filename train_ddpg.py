@@ -32,7 +32,7 @@ def main_train():
     # Hyper parameters
     # -------------------
     SEED         = 42
-    NUM_EPISODES = 5000
+    NUM_EPISODES = 6000
     NUM_STEPS    = env.max_steps
     
     GAMMA        = 0.99

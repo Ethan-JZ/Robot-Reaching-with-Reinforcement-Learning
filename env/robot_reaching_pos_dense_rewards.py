@@ -96,7 +96,7 @@ class RobotEnv(gym.Env):
         self.pos_dim       = 3     # position of the goal dimension: 3
         self.pos_threshold = 0.01  # position error threshold in meters
         self.step_count    = 0     # step count number
-        self.max_steps     = 300   # maximum step per episode
+        self.max_steps     = 200   # maximum step per episode
         self.action_scale  = 0.005  # action scale per step for the end-effector
 
         # set the observation space and action space
@@ -138,7 +138,7 @@ class RobotEnv(gym.Env):
         # ---------------------------
         # Workspace goals
         # ---------------------------
-        self.task_space_XYZ = ((-0.5, 0.5), (0.2, 0.5), (0.1, 0.4))
+        self.task_space_XYZ = ((-0.4, 0.4), (0.1, 0.5), (0.1, 0.3))
         self.ws_path        = ws_path
         self.goal_poses     = self._read_json_ws()
         self.goal_pose      = None
@@ -297,6 +297,21 @@ class RobotEnv(gym.Env):
         if success:
             terminated = True
             r += 20
+        
+        # --------------------------------------------------------
+        # [3] Collision penalty with floor
+        # --------------------------------------------------------
+        floor_geom_id = self.model.geom("ground").id
+        collision     = False
+        for i in range(self.data.ncon):
+            contact = self.data.contact[i]
+            if contact.geom1 == floor_geom_id or contact.geom2 == floor_geom_id:
+                collision = True
+                break
+
+        if collision:
+            r -= 10.0           # large penalty
+            terminated = True   # End episode on collision
 
         return r, terminated, [1. if success else 0.]
 
