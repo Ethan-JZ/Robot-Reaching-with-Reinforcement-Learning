@@ -12,7 +12,6 @@ MUJOCO_LOG.TXT
 helpers/gauss_newton.py
 
 # robot 
-env/robot.urdf
 env/robot_reaching_pos.py
 env/robot_workspace.json
 
